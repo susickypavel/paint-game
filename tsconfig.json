@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "strictPropertyInitialization": false,
+    "strict": true,
+    "sourceMap": true
+  }
+}
