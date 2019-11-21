@@ -6,10 +6,11 @@ charset = utf-8
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
-indent_size = 4
+indent_size = 2
 
-[src/**.{ts,js}]
+[src/**.ts]
+indent_size = 4
 max_line_length = 180
 
-[src/**.{html,json}]
+[src/**.{html, json}]
 indent_size = 2

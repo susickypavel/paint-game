@@ -13,7 +13,7 @@ export class Engine {
         document.body.appendChild(this.app.view);
     }
 
-    render(renderer: () => void) {
+    render(renderer: () => void): void {
         this.app.ticker.add(renderer);
     }
 

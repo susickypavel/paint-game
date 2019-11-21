@@ -2,35 +2,35 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+  mode: 'development',
 
-    entry: './src/main.ts',
+  entry: './src/main.ts',
 
-    output: {
-        path: path.resolve(__dirname, 'dist')
-    },
+  output: {
+    path: path.resolve(__dirname, 'dist')
+  },
 
-    devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
 
-    resolve: {
-        extensions: ['.ts', '.js']
-    },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
 
-    module: {
-        rules: [
-            { test: /\.ts$/, use: 'ts-loader' }
-        ]
-    },
+  module: {
+    rules: [
+      {test: /\.ts$/, use: 'ts-loader'}
+    ]
+  },
 
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        })
-    ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ],
 
-    devServer: {
-        contentBase: __dirname,
-        compress: true,
-        port: 9000
-    }
+  devServer: {
+    contentBase: __dirname,
+    compress: true,
+    port: 9000
+  }
 };
