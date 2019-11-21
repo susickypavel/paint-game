@@ -1,23 +1,18 @@
-import { Application, Text, UPDATE_PRIORITY } from 'pixi.js';
+import { Engine } from './engine/engine';
+import { Texture, Sprite } from 'pixi.js';
 
-// Create Pixi Application
-// TODO(santha): abstract PIXI code
-const app = new Application();
+const engine = new Engine();
+engine.initialize();
 
-// Add HTML canvas to the document
-document.body.appendChild(app.view);
+const texture = Texture.from('assets/textures/masterpiece.jpg');
+const sprite = new Sprite(texture);
+sprite.anchor.set(0.5);
+sprite.x = engine.app.screen.width / 2;
+sprite.y = engine.app.screen.height / 2;
+engine.app.stage.addChild(sprite);
 
-// Create FPS meter sprite
-const fpsMeter = new Text('test', {
-    fontFamily: 'monospace',
-    fontSize: 20,
-    fill: 0xffffff
+engine.render(() => {
+    sprite.rotation += 0.01;
 });
 
-// Add FPS meter to the scene
-app.stage.addChild(fpsMeter);
-
-// Register FPS meter update ticker
-app.ticker.add(() => {
-    fpsMeter.text = app.ticker.FPS.toFixed(0);
-}, null, UPDATE_PRIORITY.UTILITY);
+engine.run();
