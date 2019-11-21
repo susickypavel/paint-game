@@ -1,15 +1,13 @@
-# Moderní adaptace old school hry Battle Painters
+# Paint battles spin-off
 
 Tek stek:
-- Rendering: WebGL (Three.js)
+- Rendering: WebGL (pixi.js)
 - Comm: WebSockets
 - Server: .NET Core (SignalR)
 
-Fáze:
+Milestones:
 
-0 - workspace
-1 - implementace klienta - základní rendering grafiky skrz WebGL
-2 - ovládání
-3 - kreslení
-4 - server, připojení se do hry
-5...
+0) workspace
+1) game engine based on pixi
+2) paint brush controls
+3) base server implementation
