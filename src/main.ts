@@ -1,31 +1,23 @@
-import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { Application, Text, UPDATE_PRIORITY } from 'pixi.js';
 
-const { innerWidth, innerHeight } = window;
+// Create Pixi Application
+// TODO(santha): abstract PIXI code
+const app = new Application();
 
-// Initialize renderer and corresponding DOM element.
-const renderer = new WebGLRenderer();
-renderer.setSize(innerWidth, innerHeight);
-document.body.appendChild(renderer.domElement);
+// Add HTML canvas to the document
+document.body.appendChild(app.view);
 
-// Create scene and camera
-const scene = new Scene();
-const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
+// Create FPS meter sprite
+const fpsMeter = new Text('test', {
+    fontFamily: 'monospace',
+    fontSize: 20,
+    fill: 0xffffff
+});
 
-// Create a cube
-const geometry = new BoxGeometry(1, 1, 1);
-const material = new MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new Mesh(geometry, material);
+// Add FPS meter to the scene
+app.stage.addChild(fpsMeter);
 
-// Add cube to the scene
-scene.add(cube);
-
-// Move the camera lil bit to see the cube.
-camera.position.z = 5;
-
-// Render loop
-function render(): void {
-    requestAnimationFrame(render);
-    renderer.render(scene, camera);
-}
-
-render();
+// Register FPS meter update ticker
+app.ticker.add(() => {
+    fpsMeter.text = app.ticker.FPS.toFixed(0);
+}, null, UPDATE_PRIORITY.UTILITY);

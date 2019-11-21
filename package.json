@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/memri/paint-game#readme",
   "devDependencies": {
+    "@types/pixi.js": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
     "eslint": "^6.6.0",
     "html-webpack-plugin": "^3.2.0",
+    "json-loader": "^0.5.7",
     "ts-loader": "^6.2.1",
     "tslib": "^1.10.0",
     "typescript": "^3.7.2",
@@ -30,6 +32,6 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "three": "^0.110.0"
+    "pixi.js": "^5.2.0"
   }
 }
